@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTINA - Real-Time Traffic Navigation</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-lg-3 sidebar">
+                <div class="sidebar-header">
+                    <i class="fas fa-map-location-dot"></i>
+                    <h2>RTINA</h2>
+                    <p>Traffic Navigation</p>
+                </div>
+                
+                <!-- Route Selection -->
+                <div class="route-section">
+                    <h5>Plan Your Route</h5>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Start Point</label>
+                        <select id="sourceSelect" class="form-select">
+                            <option value="">Select start location...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Destination</label>
+                        <select id="destinationSelect" class="form-select">
+                            <option value="">Select destination...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Route Type</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="routeType" id="routeShortest" value="shortest" checked>
+                            <label class="btn btn-outline-primary" for="routeShortest">Shortest</label>
+                            
+                            <input type="radio" class="btn-check" name="routeType" id="routeFastest" value="fastest">
+                            <label class="btn btn-outline-primary" for="routeFastest">Fastest</label>
+                        </div>
+                    </div>
+                    
+                    <button id="calculateBtn" class="btn btn-primary w-100">
+                        <i class="fas fa-route"></i> Calculate Route
+                    </button>
+                </div>
+                
+                <!-- Traffic Status -->
+                <div class="traffic-section mt-4">
+                    <h5><i class="fas fa-traffic-light"></i> Traffic Status</h5>
+                    <div id="trafficList" class="traffic-list">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Journey Info -->
+                <div class="journey-section mt-4" style="display: none;">
+                    <h5>Journey Info</h5>
+                    <div id="journeyInfo">
+                        <p><strong>Distance:</strong> <span id="journeyDistance">0</span> km</p>
+                        <p><strong>Est. Time:</strong> <span id="journeyTime">0</span> min</p>
+                        <p><strong>Route Type:</strong> <span id="journeyType">-</span></p>
+                    </div>
+                    <button id="startJourneyBtn" class="btn btn-success w-100 mt-2">
+                        <i class="fas fa-play"></i> Start Journey
+                    </button>
+                </div>
+                
+                <!-- Status Indicator -->
+                <div class="status-indicator mt-4">
+                    <div class="connection-status">
+                        <span id="connectionDot" class="status-dot disconnected"></span>
+                        <span id="connectionText">Connecting...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Container -->
+            <div class="col-lg-9 p-0">
+                <div id="map" class="map-container"></div>
+                
+                <!-- Route Details Panel (appears when route calculated) -->
+                <div id="routePanel" class="route-panel" style="display: none;">
+                    <div class="route-header">
+                        <h4>Route Calculated</h4>
+                        <button type="button" class="btn-close" onclick="document.getElementById('routePanel').style.display='none'"></button>
+                    </div>
+                    <div class="route-details">
+                        <p><strong>Route:</strong> <span id="routePath">-</span></p>
+                        <p><strong>Intersections:</strong> <span id="routeIntersections">0</span></p>
+                    </div>
+                </div>
+                
+                <!-- Congestion Alert (appears during journey) -->
+                <div id="congestionAlert" class="congestion-alert" style="display: none;">
+                    <div class="alert-content">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <h5>High Congestion Detected!</h5>
+                            <p id="congestionMessage">Congestion ahead. Would you like to change your route?</p>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="btn btn-danger btn-sm" id="yesChangeRoute">Yes, Change</button>
+                            <button class="btn btn-secondary btn-sm" id="noContinue">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container">
+        <!-- Toasts will be added here -->
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    
+    <!-- Socket.IO for WebSocket -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

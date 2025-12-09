@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "country": "India",
+    "created_at": "2025-11-07",
+    "description": "Sample Nagpur city road network with 5 major intersections",
+    "projection": "WGS84"
+  },
+  "intersections": [
+    {
+      "id": 1,
+      "name": "High Court Square",
+      "latitude": 21.1458,
+      "longitude": 79.0882,
+      "type": "major_junction",
+      "capacity": 70,
+      "road_width": 4.0,
+      "description": "Main 4-lane intersection near High Court",
+      "lanes": 4,
+      "traffic_lights": true,
+      "services": ["ATM", "Restaurant", "Fuel Station"]
+    },
+    {
+      "id": 2,
+      "name": "Sitabuldi Junction",
+      "latitude": 21.1490,
+      "longitude": 79.0820,
+      "type": "major_junction",
+      "capacity": 50,
+      "road_width": 3.5,
+      "description": "3.5-lane road in commercial area",
+      "lanes": 3,
+      "traffic_lights": true,
+      "services": ["Shopping Mall", "Hospital", "Police Station"]
+    },
+    {
+      "id": 3,
+      "name": "Sadar Junction",
+      "latitude": 21.1550,
+      "longitude": 79.0900,
+      "type": "residential_junction",
+      "capacity": 45,
+      "road_width": 3.0,
+      "description": "3-lane road in residential area",
+      "lanes": 3,
+      "traffic_lights": true,
+      "services": ["School", "Park", "Market"]
+    },
+    {
+      "id": 4,
+      "name": "Seminary Hills",
+      "latitude": 21.1400,
+      "longitude": 79.0750,
+      "type": "major_junction",
+      "capacity": 60,
+      "road_width": 4.0,
+      "description": "4-lane suburban road",
+      "lanes": 4,
+      "traffic_lights": true,
+      "services": ["University", "Hospital", "Bus Stand"]
+    },
+    {
+      "id": 5,
+      "name": "Ramdaspeth",
+      "latitude": 21.1520,
+      "longitude": 79.0950,
+      "type": "local_junction",
+      "capacity": 40,
+      "road_width": 2.0,
+      "description": "2-lane local road",
+      "lanes": 2,
+      "traffic_lights": false,
+      "services": ["Local Shop", "Community Center"]
+    }
+  ],
+  "roads": [
+    {
+      "id": 1,
+      "from": 1,
+      "to": 2,
+      "distance_km": 0.8,
+      "estimated_time_minutes": 3,
+      "road_type": "primary",
+      "lanes": 3,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 40,
+      "description": "Main thoroughfare from High Court to Sitabuldi"
+    },
+    {
+      "id": 2,
+      "from": 2,
+      "to": 1,
+      "distance_km": 0.8,
+      "estimated_time_minutes": 3,
+      "road_type": "primary",
+      "lanes": 3,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 40,
+      "description": "Return route from Sitabuldi to High Court"
+    },
+    {
+      "id": 3,
+      "from": 1,
+      "to": 4,
+      "distance_km": 1.2,
+      "estimated_time_minutes": 5,
+      "road_type": "primary",
+      "lanes": 4,
+      "surface": "asphalt",
+      "condition": "excellent",
+      "speed_limit_kmph": 50,
+      "description": "Highway connecting High Court to Seminary Hills"
+    },
+    {
+      "id": 4,
+      "from": 4,
+      "to": 1,
+      "distance_km": 1.2,
+      "estimated_time_minutes": 5,
+      "road_type": "primary",
+      "lanes": 4,
+      "surface": "asphalt",
+      "condition": "excellent",
+      "speed_limit_kmph": 50,
+      "description": "Return highway from Seminary Hills to High Court"
+    },
+    {
+      "id": 5,
+      "from": 2,
+      "to": 3,
+      "distance_km": 0.9,
+      "estimated_time_minutes": 4,
+      "road_type": "secondary",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 40,
+      "description": "Connector road from Sitabuldi to Sadar"
+    },
+    {
+      "id": 6,
+      "from": 3,
+      "to": 2,
+      "distance_km": 0.9,
+      "estimated_time_minutes": 4,
+      "road_type": "secondary",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 40,
+      "description": "Return connector from Sadar to Sitabuldi"
+    },
+    {
+      "id": 7,
+      "from": 2,
+      "to": 5,
+      "distance_km": 1.1,
+      "estimated_time_minutes": 4,
+      "road_type": "secondary",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "fair",
+      "speed_limit_kmph": 35,
+      "description": "Local route from Sitabuldi to Ramdaspeth"
+    },
+    {
+      "id": 8,
+      "from": 5,
+      "to": 2,
+      "distance_km": 1.1,
+      "estimated_time_minutes": 4,
+      "road_type": "secondary",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "fair",
+      "speed_limit_kmph": 35,
+      "description": "Return local route from Ramdaspeth to Sitabuldi"
+    },
+    {
+      "id": 9,
+      "from": 3,
+      "to": 5,
+      "distance_km": 0.7,
+      "estimated_time_minutes": 3,
+      "road_type": "local",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 30,
+      "description": "Short local road from Sadar to Ramdaspeth"
+    },
+    {
+      "id": 10,
+      "from": 5,
+      "to": 3,
+      "distance_km": 0.7,
+      "estimated_time_minutes": 3,
+      "road_type": "local",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 30,
+      "description": "Return local road from Ramdaspeth to Sadar"
+    },
+    {
+      "id": 11,
+      "from": 1,
+      "to": 3,
+      "distance_km": 1.5,
+      "estimated_time_minutes": 6,
+      "road_type": "primary",
+      "lanes": 3,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 45,
+      "description": "Main route from High Court to Sadar"
+    },
+    {
+      "id": 12,
+      "from": 3,
+      "to": 1,
+      "distance_km": 1.5,
+      "estimated_time_minutes": 6,
+      "road_type": "primary",
+      "lanes": 3,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 45,
+      "description": "Return route from Sadar to High Court"
+    },
+    {
+      "id": 13,
+      "from": 4,
+      "to": 5,
+      "distance_km": 1.3,
+      "estimated_time_minutes": 5,
+      "road_type": "secondary",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 40,
+      "description": "Connector from Seminary Hills to Ramdaspeth"
+    },
+    {
+      "id": 14,
+      "from": 5,
+      "to": 4,
+      "distance_km": 1.3,
+      "estimated_time_minutes": 5,
+      "road_type": "secondary",
+      "lanes": 2,
+      "surface": "asphalt",
+      "condition": "good",
+      "speed_limit_kmph": 40,
+      "description": "Return connector from Ramdaspeth to Seminary Hills"
+    }
+  ],
+  "zones": [
+    {
+      "id": "commercial",
+      "name": "Commercial Zone",
+      "intersections": [1, 2],
+      "peak_hours": ["08:00-10:00", "17:00-19:00"],
+      "average_congestion": 45
+    },
+    {
+      "id": "residential",
+      "name": "Residential Zone",
+      "intersections": [3, 5],
+      "peak_hours": ["07:00-09:00", "18:00-20:00"],
+      "average_congestion": 35
+    },
+    {
+      "id": "suburban",
+      "name": "Suburban Zone",
+      "intersections": [4],
+      "peak_hours": ["08:00-10:00", "17:00-18:00"],
+      "average_congestion": 40
+    }
+  ],
+  "statistics": {
+    "total_intersections": 5,
+    "total_roads": 14,
+    "total_distance_km": 15.3,
+    "average_vehicle_capacity": 53,
+    "congestion_threshold_percent": 80
+  }
+}

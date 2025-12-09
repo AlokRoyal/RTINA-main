@@ -1,0 +1,28 @@
+name: rtina-env
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy>=1.24.0
+  - pandas>=2.0.0
+  - opencv::opencv
+  - pip:
+    - fastapi==0.104.1
+    - uvicorn==0.24.0
+    - python-socketio==5.9.0
+    - python-multipart==0.0.6
+    - ultralytics==8.0.185
+    - torch==2.0.1
+    - torchvision==0.15.2
+    - torchaudio==2.0.2
+    - networkx==3.2
+    - geopy==2.3.0
+    - folium==0.14.0
+    - pydantic==2.4.2
+    - pydantic-settings==2.0.3
+    - python-dotenv==1.0.0
+    - aiofiles==23.1.0
+    - loguru==0.7.2
+    - Pillow==10.0.1
+    - requests==2.31.0
